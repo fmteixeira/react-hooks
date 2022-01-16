@@ -27,8 +27,8 @@ export default function usePagination<T>(
   // Variables
   const pageCount = Math.ceil(list.length / itemsPerPage);
 
-  const setPage = (page: number) => {
-    if (page >= 0 && page < pageCount) setActivePage(page);
+  const setPage = (newPage: number) => {
+    if (newPage >= 0 && newPage < pageCount) setActivePage(newPage);
   };
 
   const nextPage = () => {

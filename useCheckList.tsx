@@ -1,18 +1,21 @@
 import { useEffect, useState } from "react";
-// Components
-// Context
-// Hooks
-// Pages
-// Resources
+
+/**
+This hook takes a given list of a generic T type and adds a checklist logic.
+
+Example:
+From a given list of notifications the user should be able to select one at a time or all of them at once to perform certain actions later, such as deleting.
+
+**/
 
 interface CheckInterface {
   checked?: boolean;
 }
 
 interface State<T extends CheckInterface> {
-  list: Array<T>;
-  checkAll: () => void;
-  checkItem: (item: T) => void;
+  list: Array<T>; // List of generic T type
+  checkAll: () => void; // Check all items
+  checkItem: (item: T) => void; // Checks a given item
 }
 
 export default function useCheckList<T extends CheckInterface>(
@@ -43,8 +46,8 @@ export default function useCheckList<T extends CheckInterface>(
   };
 
   return {
-    list: checkList,
-    checkAll,
-    checkItem,
+    list: checkList, // List of generic T type
+    checkAll, // Check all items
+    checkItem, // Checks a given item
   };
 }

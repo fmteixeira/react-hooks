@@ -13,6 +13,8 @@ interface State<T> {
   itemsPerPage: number; // Number of items per page
   pageItems: Array<T>; // Items from the current page
   setPage: (page: number) => void; // Set page number
+  nextPage: () => void; // Go to next page
+  previousPage: () => void; // Go to previous page
 }
 
 export default function usePagination<T>(
@@ -29,6 +31,14 @@ export default function usePagination<T>(
     if (page >= 0 && page < pageCount) setActivePage(page);
   };
 
+  const nextPage = () => {
+    if (page + 1 >= 0 && page + 1 < pageCount) setActivePage(page + 1);
+  }
+  
+  const previousPage = () => {
+    if (page - 1 >= 0 && page - 1 < pageCount) setActivePage(page - 1);
+  }
+
   useEffect(() => {
     const firstItemIndex = page * itemsPerPage;
     const lastItemIndex = page * itemsPerPage + itemsPerPage;
@@ -41,5 +51,7 @@ export default function usePagination<T>(
     itemsPerPage,
     pageItems,
     setPage,
+    nextPage,
+    previousPage
   };
 }

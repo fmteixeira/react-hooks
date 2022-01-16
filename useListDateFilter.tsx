@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 Given a list of a generic object T type with one key with a date value, this hook will filter the list using a given date range.
 
 Example:
-Objective is to filter a list of news based off creation date using a date picker.
+Objective is to filter a list of news based off creation date using a date range picker.
 List with objects of a news type: [{ title: "New React version!", creationDate: Date }, ...]
 Using the given date range, this will filter all the news by checking if the "creationDate" is within the range.
 **/
@@ -25,7 +25,7 @@ export default function useListDateFilter<
   T extends object,
   K extends KeysMatching<T, Date>
 >(
-  list: T[], // List with generic object T to be filtered
+  list: T[], // List with objects of generic type T to be filtered
   dateKey: K, // Key with Date value from generic object T
   initialStartDate?: Date,
   initialEndDate?: Date

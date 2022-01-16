@@ -46,12 +46,12 @@ export default function usePagination<T>(
   }, [list, page]);
 
   return {
-    page,
-    pageCount,
-    itemsPerPage,
-    pageItems,
-    setPage,
-    nextPage,
-    previousPage
+    page, // Current page
+    pageCount, // Total number of pages
+    itemsPerPage, // Number of items per page
+    pageItems, // Items from the current page
+    setPage, // Set page number
+    nextPage, // Go to next page
+    previousPage // Go to previous page
   };
 }
